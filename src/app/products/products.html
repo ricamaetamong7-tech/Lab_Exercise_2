@@ -1,0 +1,14 @@
+<div class="products">
+  <div class="product-card" *ngFor="let item of products">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <strong>{{ item.name }}</strong>
+      <span class="meta">{{ item.meta }}</span>
+    </div>
+    <div class="swatch" [style.background]="item.swatch"></div>
+    <p>{{ item.description }}</p>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <button class="price-btn" (click)="addToCart(item)" [disabled]="item.stock===0">Buy — ${{ item.price }}</button>
+      <small style="color:var(--muted)">{{ item.status }}</small>
+    </div>
+  </div>
+</div>
